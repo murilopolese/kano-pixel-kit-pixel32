@@ -1,0 +1,23 @@
+{
+  "name": "pixel32-editor",
+  "version": "0.1.0",
+  "description": "Pixel32 Real Tiny Computer",
+  "main": "main.js",
+  "author": "Murilo Polese <murilopolese@gmail.com>",
+  "license": "MIT",
+  "private": true,
+  "scripts": {
+    "build": "./node_modules/.bin/browserify src/main.js -t unassertify  -t nanohtml -o bundle.js",
+    "watch": "./node_modules/.bin/watchify src/main.js -t unassertify -t nanohtml -o bundle.js"
+  },
+  "dependencies": {
+    "choo": "^6.13.0"
+  },
+  "devDependencies": {
+    "bankai": "^9.15.0",
+    "browserify": "^16.2.2",
+    "choo-devtools": "^2.5.1",
+    "unassertify": "^2.1.1",
+    "watchify": "^3.11.0"
+  }
+}
