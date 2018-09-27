@@ -7,13 +7,13 @@ kit.render()
 sleep(0.5)
 
 try:
-    import wifi_config as CONF
+    import wifi as CONF
 except:
-    with open('wifi_config.py', 'w') as f:
+    with open('wifi.py', 'w') as f:
         f.write('SSID=None\n')
         f.write('PASSWORD=None\n')
         f.close()
-    import wifi_config as CONF
+    import wifi as CONF
 
 import network
 import utime
