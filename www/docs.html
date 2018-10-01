@@ -37,7 +37,7 @@
             padding: 12px;
         }
         h1, h2 {
-            margin: 1.5em 0 0.5em 0;
+            margin: 1.5em 0 1.5em 0;
         }
         h1 {
             color: #F92672
@@ -54,16 +54,32 @@
             text-decoration: underline;
         }
         #wrapper {
+            position: relative;
             padding: 5vh;
             max-width: 100vh;
             height: auto;
             background: #272822;
             margin: 0 auto;
         }
+        #menu {
+            position: fixed;
+            top: 0;
+            background: #272822;
+            max-width: 100vh;
+            width: 100%;
+            padding: 3vh 0;
+        }
         </style>
     </head>
     <body>
+
 <div id="wrapper">
+    <div id="menu">
+        <a href="#wifi">Wifi</a> -
+        <a href="#pixel-turtle">Pixel Turtle</a> -
+        <a href="#pixel-kit">Pixel Kit</a> -
+        <a href="#programming-in-python">Python</a>
+    </div>
 
 <div id="wifi" class="markdown">
 # Connecting to a wifi network

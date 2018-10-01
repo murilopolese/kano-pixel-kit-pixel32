@@ -21,35 +21,32 @@ the MicroPython REPL on your Pixel Kit!\r
 REPL stands for Read, Evaluate, Print\r
 and Loop. Type docs() to learn more.\r
 `
-const offlineHelpMsg = `\r
+const offlineHelpMsg = `
+\r\x1b[38;2;102;217;239m
 ╔=========================================╗\r
 ║                CONNECTING               ║\r
 ╚=========================================╝\r
-\r
+\r\x1b[38;2;255;255;255m
 When your Pixel Kit is connected to a wifi\r
 network it will display its ip address in\r
 binary format. Red dots mean 1, no dots\r
 mean 0.\r
 \r
-If you are seing a red screen, turn your\r
-Pixel Kit off and on again while holding\r
-both red buttons. This will gently force\r
-Pixel Kit to show the blue screen.\r
-\r
-Check if your computer is connected to the\r
-network Pixel Kit created or is connected \r
-to, type its ip address in binary or \r
+Check if your Pixel Kit and computer are on\r
+the same network, either the one Pixel Kit\r
+created itself or the one you connected it\r
+to, and type the ip address in binary or \r
 decimal format. It will look something \r
 like this:\r
 \r
 > 11000000101010000000010000000001\r
 or\r
 > 192.168.4.1\r
-\r
+\r\x1b[38;2;102;217;239m
 ╔=========================================╗\r
 ║              BOOT SCREENS               ║\r
 ╚=========================================╝\r
-\r
+\r\x1b[38;2;255;255;255m
 When your Pixel Kit boots up it shows a few\r
 screens to let you know what it's doing and\r
 it's state. Here is what they mean:\r
@@ -68,6 +65,10 @@ it's state. Here is what they mean:\r
 - \x1b[38;2;249;38;114mRed\x1b[38;2;255;255;255m\r
   Tried to connect to a wifi network and\r
   failed.\r
+\r
+Turn your Pixel Kit off and on again while\r
+holding both red buttons to gently force\r
+Pixel Kit to show the blue screen.\r
 \r
 `
 
