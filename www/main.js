@@ -33,9 +33,9 @@ binary format. Red dots mean 1, no dots\r
 mean 0.\r
 \r
 Check if your Pixel Kit and computer are on\r
-the same network, either the one Pixel Kit\r
+the same network (either the one Pixel Kit\r
 created itself or the one you connected it\r
-to, and type the ip address in binary or \r
+to) and type the ip address in binary or \r
 decimal format. It will look something \r
 like this:\r
 \r
@@ -49,7 +49,7 @@ or\r
 \r\x1b[38;2;255;255;255m
 When your Pixel Kit boots up it shows a few\r
 screens to let you know what it's doing and\r
-it's state. Here is what they mean:\r
+its state. Here is what they mean:\r
 \r
 - \x1b[38;2;253;151;31mOrange\x1b[38;2;255;255;255m\r
   Trying to connect.\r
@@ -66,9 +66,10 @@ it's state. Here is what they mean:\r
   Tried to connect to a wifi network and\r
   failed.\r
 \r
-Turn your Pixel Kit off and on again while\r
-holding both red buttons to gently force\r
-Pixel Kit to show the blue screen.\r
+At any time, turn your Pixel Kit off and on\r
+again while holding both red buttons to \r
+gently force your Pixel Kit to show the \r
+blue screen.\r
 \r
 `
 
