@@ -10,7 +10,6 @@
     "build": "./node_modules/.bin/inliner > index_inline.html"
   },
   "dependencies": {
-    "codemirror": "^5.40.2",
     "strapdown": "murilopolese/strapdown",
     "webrepl-client": "murilopolese/webrepl-client",
     "xterm": "^3.7.0"
