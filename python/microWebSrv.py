@@ -23,11 +23,11 @@ except :
 
 class MicroWebSrvRoute :
     def __init__(self, route, method, func, routeArgNames, routeRegex) :
-        self.route         = route        
-        self.method        = method       
-        self.func          = func         
+        self.route         = route
+        self.method        = method
+        self.func          = func
         self.routeArgNames = routeArgNames
-        self.routeRegex    = routeRegex   
+        self.routeRegex    = routeRegex
 
 
 class MicroWebSrv :
@@ -288,7 +288,7 @@ class MicroWebSrv :
         return None
 
     # ----------------------------------------------------------------------------
-    
+
     def GetRouteHandler(self, resUrl, method) :
         if self._routeHandlers :
             #resUrl = resUrl.upper()
@@ -349,12 +349,12 @@ class MicroWebSrv :
             self._headers       = { }
             self._contentType   = None
             self._contentLength = 0
-            
+
             if hasattr(socket, 'readline'):   # MicroPython
                 self._socketfile = self._socket
             else:   # CPython
                 self._socketfile = self._socket.makefile('rwb')
-                        
+
             self._processRequest()
 
         # ------------------------------------------------------------------------
@@ -383,7 +383,8 @@ class MicroWebSrv :
                                             if self._microWebSrv.LetCacheStaticContentLevel > 1 and 'if-modified-since' in self._headers :
                                                 response.WriteResponseNotModified()
                                             else:
-                                                header = {'Last-Modified':'Fri, 1 Jan 2018 23:42:00 GMT', \
+                                                header = {'Content-Encoding':'gzip', \
+                                                          'Last-Modified':'Fri, 1 Jan 2018 23:42:00 GMT', \
                                                           'Cache-Control':'max-age=315360000'}
                                                 response.WriteResponseFile(filepath, contentType, header)
                                         elif contentType :
@@ -440,7 +441,7 @@ class MicroWebSrv :
             except :
                 pass
             return False
-    
+
         # ------------------------------------------------------------------------
 
         def _parseHeader(self, response) :
@@ -559,7 +560,7 @@ class MicroWebSrv :
                 return loads(self.ReadRequestContent())
             except :
                 return None
-        
+
     # ============================================================================
     # ===( Class Response  )======================================================
     # ============================================================================
@@ -892,4 +893,3 @@ class MicroWebSrv :
     # ============================================================================
     # ============================================================================
     # ============================================================================
-

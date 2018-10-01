@@ -1,4 +1,5 @@
 print('Booting...')
+import webrepl
 import PixelKit as kit
 from time import sleep
 
@@ -6,13 +7,22 @@ kit.set_background([10, 5, 0])
 kit.render()
 sleep(0.5)
 
+def saveWifiConf(ssid=None, password=None):
+    with open('wifi.py', 'w') as f:
+        if ssid is None:
+            f.write('SSID=None\n')
+        else:
+            f.write('SSID="{}"\n'.format(ssid))
+        if ssid is None:
+            f.write('PASSWORD=None\n')
+        else:
+            f.write('PASSWORD="{}"\n'.format(password))
+        f.close()
+
 try:
     import wifi as CONF
 except:
-    with open('wifi.py', 'w') as f:
-        f.write('SSID=None\n')
-        f.write('PASSWORD=None\n')
-        f.close()
+    saveWifiConf()
     import wifi as CONF
 
 import network
@@ -44,6 +54,7 @@ def draw_ip(ip_str='0.0.0.0', bg=[0, 0, 0], color=[10, 0, 0]):
 def start_ap():
     sta.active(False)
     ap.active(True)
+    webrepl.start()
     kit.set_background([0, 0, 10])
     draw_ip(ap.ifconfig()[0])
     kit.render()
@@ -60,6 +71,7 @@ def connect(ssid, password):
             break
     if sta.isconnected():
         print('Connected', sta.ifconfig())
+        webrepl.start()
         kit.set_background([0, 10, 0])
         draw_ip(sta.ifconfig()[0])
         kit.render()
