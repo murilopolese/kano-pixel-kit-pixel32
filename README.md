@@ -29,3 +29,10 @@ Pixel32 is a MicroPython application running on Kano Pixel Kit that allows it to
 ## Extracting firmware from Pixel Kit
 
 1. Run `sh dump /path/to/your/pixel/kit` on `python` folder to dump its firmware to `dist/pixel32-v0.1.0.bin` (this can take a while)
+
+## Known problems/bugs:
+
+- Ctrl+c and Ctrl+v is not working.
+- On captive portal, if you go to docs, when you come back the websocket connection is lost.
+- There is no documentation to say you can access the terminal page on Pixel Kit’s ip address.
+- There is no documentation explaining people can save the terminal and docs offline.
