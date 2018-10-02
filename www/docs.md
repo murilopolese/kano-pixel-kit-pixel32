@@ -1,4 +1,5 @@
 <div id="connecting"></div>
+
 # Connecting
 
 ## Ip Address
@@ -47,6 +48,7 @@ saveWifiConf('KanoGuest', 'everyonecanmake')
 This will save this information on a file called `wifi.py` that is used by Pixel Kit on boot. After running `saveWifiConf(ssid, password)`, you must turn your Pixel Kit off and on again to apply the changes.
 
 <div id="pixel-turtle"></div>
+
 # Pixel Turtle Guide
 
 ## Position and heading
@@ -283,6 +285,7 @@ If you get tired of writing the same thing over and over and over you might use 
 - `c()` is for `clear()`
 
 <div id="pixel-kit"></div>
+
 # Pixel Kit Library Guide
 
 If you are familiar with Pixel Turtle already this will be much easier. Pixel Turtle has a list of instructions, commands and options that are written using Pixel Kit Library under the hood. Pixel Turtle is made to be simple to understand and Pixel Kit library is made to write advanced and more optimal code.
@@ -498,6 +501,7 @@ Last but not least important if we want to change a variable that is created out
 The available events are `on_joystick_left`, `on_joystick_right`, `on_joystick_up`, `on_joystick_down`, `on_joystick_click`, `on_button_a`, `on_button_b` and `on_dial`.
 
 <div id="programming-in-python"></div>
+
 # Programming in Python
 
 Pixel Kit and Pixel turtle Turtle are libraries written in MicroPython. MicroPython is a simplified version of Python, a very powerful programming language. Most things on MicroPython are the same as in Python so for that reason we will just talk about Python.

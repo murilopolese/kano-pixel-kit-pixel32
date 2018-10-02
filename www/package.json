@@ -1,24 +1,28 @@
 {
   "name": "pixel32-editor",
   "version": "0.1.0",
-  "description": "Pixel32 Real Tiny Computer",
-  "main": "main.js",
+  "description": "Code MicroPython on your Pixel Kit over the browser",
+  "main": "index.html",
   "author": "Murilo Polese <murilopolese@gmail.com>",
   "license": "MIT",
   "private": true,
   "scripts": {
-    "clean": "rm -rf dist > /dev/null",
-    "build": "yarn run mkdir-dist && yarn run inline && yarn run compress",
-    "mkdir-dist": "mkdir -p dist",
-    "inline": "./node_modules/.bin/inliner index.html > dist/index.html && ./node_modules/.bin/inliner docs.html > dist/docs.html",
-    "compress": "gzip -f -c dist/index.html > dist/index.html.gz && gzip -f -c dist/docs.html > dist/docs.html.gz && cp docs.md dist/docs.md"
+      "build": "./node_modules/.bin/gulp"
   },
   "dependencies": {
-    "strapdown": "murilopolese/strapdown",
     "webrepl-client": "murilopolese/webrepl-client",
     "xterm": "^3.7.0"
   },
   "devDependencies": {
-    "inliner": "^1.13.1"
+    "ejs": "^2.6.1",
+    "gulp": "^3.9.1",
+    "gulp-clean": "^0.4.0",
+    "gulp-gzip": "^1.4.2",
+    "gulp-htmlmin": "jonschlinkert/gulp-htmlmin",
+    "gulp-layout": "^0.0.4",
+    "gulp-markdown": "^3.0.0",
+    "gulp-minify-inline": "^1.0.0",
+    "gulp-smoosher": "^0.0.9",
+    "run-sequence": "^2.2.1"
   }
 }

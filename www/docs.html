@@ -3,7 +3,9 @@
     <head>
         <meta charset="utf-8">
         <title>Kano Pixel Kit - Documentation</title>
-        <link rel="stylesheet" href="docs.css">
+        <!-- smoosh -->
+        <link rel="stylesheet" href="docs.css"/>
+        <!-- endsmoosh -->
     </head>
     <body>
         <div id="wrapper">
@@ -13,17 +15,7 @@
                 <a href="#pixel-kit">Pixel Kit</a> -
                 <a href="#programming-in-python">Python</a>
             </div>
-            <div id="content" class="markdown"></div>
-            <script type="text/javascript" src="node_modules/strapdown/v/0.2/strapdown.js"></script>
-            <script type="text/javascript">
-                window.onload = () => {
-                    let content = document.querySelector('#content')
-                    fetch('/docs.md')
-                    .then((r) => r.text())
-                    .then((docs) => {
-                        content.innerHTML = marked(docs)
-                    })
-                }
-            </script>
+            <div id="content" class="markdown"><%- contents %></div>
+        </div>
     </body>
 </html>

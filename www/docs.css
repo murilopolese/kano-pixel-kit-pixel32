@@ -1,8 +1,6 @@
 html {
-    --font-heading: 'Bariol', Helvetica, Arial, sans-serif;
-    --font-body: 'Bariol', Helvetica, Arial, sans-serif;
-    --font-special: 'Bariol', Helvetica, Arial, sans-serif;
     --font-code: Monaco, monospace;
+    font-family: var(--font-code)
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
 }
