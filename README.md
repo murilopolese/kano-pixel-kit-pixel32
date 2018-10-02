@@ -22,6 +22,8 @@ When you connect to this wifi network you can either wait for the Captive Portal
 
 The Pixel Kit ip address while displaying the blue screen will never change: it will always be `192.168.4.1`. Learn more about the blue screen on the [documentation](www/docs.md#boot-screens).
 
+**TIP**: Loading the terminal page and docs from the board can be slow. It's highly recommended that you save this pages on your computer for a much better experience. Both terminal and documentation can be saved on your computer by typing `CONTROL + S` or `COMMAND + S`. You can run them locally by simply double clicking the `html` file you saved.
+
 ## Features
 
 - Includes `microWebSrv`, `MicroDNSSrv`, `PixelKit` and `PixelTurtle` libraries. Check [python folder](python) to read the source code.
@@ -45,14 +47,14 @@ The Pixel Kit ip address while displaying the blue screen will never change: it 
 
 ### Building the front end
 
-1. Run `yarn install` on `www` folder
-1. Run `yarn run build` on `www` folder
+1. Run `yarn install` on `www` folder.
+1. Run `yarn run build` on `www` folder.
 
 ### Flashing Pixel32 to Pixel Kit (MicroPython and files)
 
-1. Run `pip install -r requirements.txt` on `python` folder
-1. Run `sh flash /path/to/your/pixel/kit` on `python` folder replacing `/path/to/your/pixel/kit` by the serial port path of your Pixel Kit
+1. Run `pip install -r requirements.txt` on `python` folder.
+1. Run `sh flash /path/to/your/pixel/kit` on `python` folder replacing. `/path/to/your/pixel/kit` by the serial port path of your Pixel Kit.
 
 ### Extracting firmware from Pixel Kit
 
-1. Run `sh dump /path/to/your/pixel/kit` on `python` folder to dump its firmware to `dist/pixel32-v0.1.0.bin` (this can take a while)
+1. Run `sh dump /path/to/your/pixel/kit` on `python` folder to dump its firmware to `dist/pixel32-v0.1.0.bin` (this will take a while).
