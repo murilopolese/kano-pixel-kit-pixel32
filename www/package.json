@@ -1,7 +1,7 @@
 {
   "name": "pixel32-editor",
   "version": "0.1.0",
-  "description": "Code MicroPython on your Pixel Kit over the browser",
+  "description": "Code MicroPython on your Pixel Kit on the browser",
   "main": "index.html",
   "author": "Murilo Polese <murilopolese@gmail.com>",
   "license": "MIT",

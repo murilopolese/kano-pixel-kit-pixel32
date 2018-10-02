@@ -1,4 +1,4 @@
-# Pixel32 - Code MicroPython on your Pixel Kit over the browser!
+# Pixel32 - Code MicroPython on your Pixel Kit on the browser!
 
 Pixel32 is the nickname for the combination of a MicroPython application running on Kano Pixel Kit. Its main features are:
 
