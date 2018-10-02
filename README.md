@@ -1,13 +1,17 @@
 # Pixel32 - Code MicroPython on your Pixel Kit on the browser!
 
+![](https://i.imgur.com/bGmm57E.png)
+
+Check [more the screenshots here](https://imgur.com/a/AEzbgcb)
+
 Pixel32 is the nickname for the combination of a MicroPython application running on Kano Pixel Kit. Its main features are:
 
 - Includes `microWebSrv`, `MicroDNSSrv`, `PixelKit` and `PixelTurtle` libraries.
 - WebREPL enabled.
 - Boot sequence that can either connect to a wifi or start it's own wifi network.
-- Once connected, displays the board ip address in binary format on the screen.
-- Host a terminal/console that allow you to connect and code your Pixel Kit from the browser.
-- You can connect to the Pixel Kit by inputing the ip address in decimal or binary format.
+- Once connected, displays the board's ip address in binary format on the screen.
+- Host a terminal/console html page that allow you to connect and code your Pixel Kit from the browser.
+- You can connect to the Pixel Kit by typing the ip address in decimal or binary format.
 - When connected to the wifi network created by the Pixel Kit, it starts a captive portal: Once you connect to this wifi it will pop up the terminal for you automagically.
 - Host full documentation of how to connect, use `PixelKit` and `PixelTurtle` libraries and a very quick Python introduction on `/docs.html`. Check [docs.md](www/docs.md) to read it.
 - Both terminal and documentation can be saved on your computer by typing `CONTROL + S` or `COMMAND + S`. You can run them by simply double clicking the `html` file you saved.
