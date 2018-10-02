@@ -6,7 +6,7 @@
 
 When your Pixel Kit is connected to a wifi network it will display its ip address in binary format. Red dots mean 1, no dots mean 0.
 
-Check if your Pixel Kit and computer are on the same network (either the one Pixel Kit created itself or the one you connected it to) and type the ip address in binary or decimal format. It will look something like this:
+Make sure your Pixel Kit and computer are on the same network (either the one Pixel Kit created itself or the one you connected it to) and type the ip address in binary or decimal format. It will look something like this:
 
 ```python
 > 11000000101010000000010000000001
@@ -31,7 +31,7 @@ The blue screen is a very special screen as it will allow you to connect to your
 
 The first time your Pixel Kit boots it will always display the blue screen. The Pixel Kit ip address while displaying the blue screen will never change: it will always be `192.168.4.1`.
 
-At any time, turn your Pixel Kit off and on again while holding both red buttons to gently force your Pixel Kit to show the blue screen.
+At any time, turn your Pixel Kit off and on again while holding both red buttons to gently force it to show the blue screen.
 
 This is very useful if you have connected to the wrong wifi network, one that is not available anymore, to code offline or to connect to a new network.
 
