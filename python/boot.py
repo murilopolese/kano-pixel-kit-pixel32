@@ -1,11 +1,15 @@
 print('Booting...')
 import webrepl
 import PixelKit as kit
+from machine import unique_id
 from time import sleep
 
 kit.set_background([10, 5, 0])
 kit.render()
 sleep(0.5)
+
+def get_id():
+    return int.from_bytes(unique_id(), 'little')
 
 def saveWifiConf(ssid=None, password=None):
     with open('wifi.py', 'w') as f:
@@ -54,6 +58,8 @@ def draw_ip(ip_str='0.0.0.0', bg=[0, 0, 0], color=[10, 0, 0]):
 def start_ap():
     sta.active(False)
     ap.active(True)
+    ap.config(essid='PIXEL_KIT_{}'.format(get_id()))
+    # ap.config(authmode=3, password='makeacomputer')
     webrepl.start()
     kit.set_background([0, 0, 10])
     draw_ip(ap.ifconfig()[0])
