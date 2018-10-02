@@ -21,7 +21,7 @@ Pixel32 is a MicroPython application running on Kano Pixel Kit that allows it to
 1. Run `yarn install` on `www` folder
 1. Run `yarn run build` on `www` folder
 
-## Flashing the board with MicroPython and transferring files
+## Flashing the board with MicroPython and transfer files
 
 1. Run `pip install -r requirements.txt` on `python` folder
 1. Run `sh flash /path/to/your/pixel/kit` on `python` folder replacing `/path/to/your/pixel/kit` by the serial port path of your Pixel Kit
