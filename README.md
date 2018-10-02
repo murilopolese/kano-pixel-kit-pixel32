@@ -4,17 +4,17 @@
 
 Check [more the screenshots here](https://imgur.com/a/AEzbgcb)
 
-Pixel32 is the nickname for the combination of a MicroPython application running on Kano Pixel Kit. Its main features are:
+Pixel32 is a MicroPython application running on Kano Pixel Kit that allows it to be programmed on the browser. Its main features are:
 
-- Includes `microWebSrv`, `MicroDNSSrv`, `PixelKit` and `PixelTurtle` libraries.
-- WebREPL enabled.
+- Includes `microWebSrv`, `MicroDNSSrv`, `PixelKit` and `PixelTurtle` libraries. Check [python folder](python) to read the source code.
+- It has WebREPL enabled.
 - Boot sequence that can either connect to a wifi or start it's own wifi network.
 - Once connected, displays the board's ip address in binary format on the screen.
-- Host a terminal/console html page that allow you to connect and code your Pixel Kit from the browser.
-- You can connect to the Pixel Kit by typing the ip address in decimal or binary format.
+- Host a html page that allow you to connect and code your Pixel Kit on the browser.
+- You can connect to the Pixel Kit by typing the ip address in decimal or binary format on the html page hosted by the board.
 - When connected to the wifi network created by the Pixel Kit, it starts a captive portal: Once you connect to this wifi it will pop up the terminal for you automagically.
-- Host full documentation of how to connect, use `PixelKit` and `PixelTurtle` libraries and a very quick Python introduction on `/docs.html`. Check [docs.md](www/docs.md) to read it.
-- Both terminal and documentation can be saved on your computer by typing `CONTROL + S` or `COMMAND + S`. You can run them by simply double clicking the `html` file you saved.
+- Host full documentation on how to connect, use `PixelKit` and `PixelTurtle` libraries and a very quick Python introduction. This documentation is hosted by the board on `/docs.html` and on [GitHub](www/docs.md).
+- Both terminal and documentation can be saved on your computer by typing `CONTROL + S` or `COMMAND + S`. You can run them locally by simply double clicking the `html` file you saved.
 
 ## Building the front end
 
