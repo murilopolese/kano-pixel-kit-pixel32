@@ -1,0 +1,68 @@
+html {
+    --font-heading: 'Bariol', Helvetica, Arial, sans-serif;
+    --font-body: 'Bariol', Helvetica, Arial, sans-serif;
+    --font-special: 'Bariol', Helvetica, Arial, sans-serif;
+    --font-code: Monaco, monospace;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+body {
+    margin: 0;
+    font-family: var(--font-code);
+    font-size: 18px;
+    display: flex;
+    flex-direction: column;
+    line-height: 1.5em;
+    color: #dddddd;
+    background: #666666;
+}
+code, pre {
+    font-family: var(--font-code);
+    font-size: 16px;
+    font-weight: bold;
+    background: #272822;
+    color: #A6E22E;
+    border-radius: 5px;
+}
+code {
+    padding: 1px 3px;
+}
+pre {
+    padding: 12px;
+}
+h1, h2 {
+    margin: 1.5em 0 1.5em 0;
+}
+h1 {
+    color: #F92672
+}
+h2 {
+    color: #FD971F;
+}
+a:link, a:visited, a:hover, a:active {
+    font-weight: bold;
+    color: #66D9EF;
+    text-decoration: none;
+}
+a:hover {
+    text-decoration: underline;
+}
+#wrapper {
+    position: relative;
+    padding: 5vh;
+    max-width: 100vh;
+    height: auto;
+    background: #272822;
+    margin: 0 auto;
+}
+#menu {
+    position: fixed;
+    top: 0;
+    background: #272822;
+    max-width: 100vh;
+    width: 100%;
+    padding: 3vh 0;
+}
+#connecting, #pixel-turtle, #pixel-kit, #programming-in-python {
+    height: 5vh;
+}
