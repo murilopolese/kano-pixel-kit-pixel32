@@ -42,6 +42,7 @@ The Pixel Kit ip address while displaying the blue screen will never change: it 
 - On captive portal, if you go to docs, when you come back the websocket connection is lost.
 - There is no documentation to say you can access the terminal page on Pixel Kit’s ip address.
 - There is no documentation explaining people can save the terminal and docs offline.
+- It would be better to not need the board to build the firmware.
 
 ## Building
 

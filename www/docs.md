@@ -51,8 +51,6 @@ This will save this information on a file called `wifi.py` that is used by Pixel
 
 # Pixel Turtle Guide
 
-## Position and heading
-
 If you turn on your Pixel Kit and only see a green and a yellow pixel it's because you probably have the Pixel Turtle library installed and running on your Pixel Kit already!
 
 Otherwise run the execute code:
@@ -60,7 +58,10 @@ Otherwise run the execute code:
 ```python
 from PixelTurtle import *
 ```
-Imagine the green pixel as if it was a turtle seen from above and the yellow pixel is where the turtle is heading for. This is what you can tell it to do:
+
+## Position and heading
+
+Imagine the green pixel as if it was a turtle seen from above and the yellow pixel is where the turtle is heading for.
 
 ## Left and right
 
