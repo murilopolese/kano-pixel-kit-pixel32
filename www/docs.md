@@ -57,6 +57,8 @@ Otherwise run the execute code:
 
 ```python
 from PixelTurtle import *
+clear()
+moveTo(8, 4)
 ```
 
 ## Position and heading
