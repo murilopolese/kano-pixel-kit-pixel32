@@ -38,6 +38,7 @@ The Pixel Kit ip address while displaying the blue screen will never change: it 
 
 ## Known problems/bugs:
 
+- Layout breaks when you save the terminal page on your computer.
 - Ctrl+c and Ctrl+v is not working.
 - On captive portal, if you go to docs, when you come back the websocket connection is lost.
 - There is no documentation to say you can access the terminal page on Pixel Kit’s ip address.
