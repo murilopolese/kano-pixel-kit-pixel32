@@ -105,7 +105,9 @@ class App {
         this.term.setColor = (r, g, b) => {
             this.term.write('\x1b[38;2;'+r+';'+g+';'+b+'m')
         }
-        this.term.open(document.getElementById('terminal'))
+        let termEl = document.getElementById('terminal')
+        termEl.innerHTML = ''
+        this.term.open(termEl)
         this.term.on('paste', (data, ev) => {
             this.term.write(data);
         })
