@@ -59,4 +59,4 @@ The Pixel Kit ip address while displaying the blue screen will never change: it 
 
 ### Extracting firmware from Pixel Kit
 
-1. Run `sh dump /path/to/your/pixel/kit` on `python` folder to dump its firmware to `dist/pixel32-v0.1.0.bin` (this will take a while).
+1. Run `sh dump /path/to/your/pixel/kit` on `python` folder to dump its firmware to `dist/pixel32.bin` (this will take a while).
