@@ -108,15 +108,11 @@ class App {
         let termEl = document.getElementById('terminal')
         termEl.innerHTML = ''
         this.term.open(termEl)
-        this.term.on('paste', (data, ev) => {
-            this.term.write(data);
-        })
     }
 
     saveCmdBuffer() {
         try {
             localStorage.setItem('cmdBuffer', JSON.stringify(this.cmdBuffer.slice(0, 5)))
-            console.log(localStorage.getItem('cmdBuffer'))
         } catch(e) { console.log(e) }
     }
 
@@ -207,10 +203,6 @@ class App {
             this.cmdBufferIndex = 0
             this.term.write(key)
         } else {
-            let arrowDown = ev.code == 'ArrowDown'
-            let arrowUp = ev.code == 'ArrowUp'
-            let arrowLeft = ev.code == 'ArrowLeft'
-            let arrowRight = ev.code == 'ArrowRight'
             if (arrowUp || arrowDown) {
                 if(arrowUp) {
                     this.cmdBufferIndex = (this.cmdBufferIndex + 1) % this.cmdBuffer.length
@@ -261,7 +253,6 @@ class App {
             }
             if (isConnected) {
                 if (msg.indexOf('!open') == 0) {
-                    console.log(msg, msg.split(' '))
                     window.open(msg.split(' ')[1])
                 } else {
                     this.term.write(msg)
