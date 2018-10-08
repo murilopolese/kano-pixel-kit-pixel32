@@ -1,5 +1,5 @@
 {
-  "name": "pixel32-editor",
+  "name": "pixel32-terminal",
   "version": "0.1.1",
   "description": "Code MicroPython on your Pixel Kit on the browser",
   "main": "index.html",
