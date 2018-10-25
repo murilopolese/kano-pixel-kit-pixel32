@@ -4,22 +4,82 @@
         <meta charset="utf-8">
         <title>Kano Pixel Kit - Code with light.</title>
         <meta name="viewport" content="width=device-width, initial-scale=1">
-        <!-- smoosh -->
-        <link rel="stylesheet" href="node_modules/xterm/dist/xterm.css" />
-        <link rel="stylesheet" href="main.css" />
-        <!-- endsmoosh -->
+        <style>
+            body { margin: 0 auto; }
+            #loading {
+                position: fixed;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                left: 0;
+                top: 0;
+                width: 100vw;
+                height: 100vh;
+                background: #666;
+                color: #333;
+                z-index: 99;
+                font-size: 32px;
+                font-family: monospace;
+                font-weight: bold;
+            }
+        </style>
     </head>
     <body>
-        <div id="wrapper">
-            <div id="terminal"></div>
-        </div>
-        <!-- smoosh -->
-        <!-- XTERMJS -->
+        <div id="loading">Loading...</div>
+        <pixel32-small-screen></pixel32-small-screen>
+        <pixel32-shell selected="terminal">
+            <div slot="pages" id="terminal">
+                <pixel32-toolbar>
+                    <pixel32-button>
+                        <a href="#!/editor">
+                            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDUyMi40NjggNTIyLjQ2OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNTIyLjQ2OCA1MjIuNDY5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTMyNS43NjIsNzAuNTEzbC0xNy43MDYtNC44NTRjLTIuMjc5LTAuNzYtNC41MjQtMC41MjEtNi43MDcsMC43MTVjLTIuMTksMS4yMzctMy42NjksMy4wOTQtNC40MjksNS41NjhMMTkwLjQyNiw0NDAuNTMgICAgYy0wLjc2LDIuNDc1LTAuNTIyLDQuODA5LDAuNzE1LDYuOTk1YzEuMjM3LDIuMTksMy4wOSwzLjY2NSw1LjU2OCw0LjQyNWwxNy43MDEsNC44NTZjMi4yODQsMC43NjYsNC41MjEsMC41MjYsNi43MS0wLjcxMiAgICBjMi4xOS0xLjI0MywzLjY2Ni0zLjA5NCw0LjQyNS01LjU2NEwzMzIuMDQyLDgxLjkzNmMwLjc1OS0yLjQ3NCwwLjUyMy00LjgwOC0wLjcxNi02Ljk5OSAgICBDMzMwLjA4OCw3Mi43NDcsMzI4LjIzNyw3MS4yNzIsMzI1Ljc2Miw3MC41MTN6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPHBhdGggZD0iTTE2Ni4xNjcsMTQyLjQ2NWMwLTIuNDc0LTAuOTUzLTQuNjY1LTIuODU2LTYuNTY3bC0xNC4yNzctMTQuMjc2Yy0xLjkwMy0xLjkwMy00LjA5My0yLjg1Ny02LjU2Ny0yLjg1NyAgICBzLTQuNjY1LDAuOTU1LTYuNTY3LDIuODU3TDIuODU2LDI1NC42NjZDMC45NSwyNTYuNTY5LDAsMjU4Ljc1OSwwLDI2MS4yMzNjMCwyLjQ3NCwwLjk1Myw0LjY2NCwyLjg1Niw2LjU2NmwxMzMuMDQzLDEzMy4wNDQgICAgYzEuOTAyLDEuOTA2LDQuMDg5LDIuODU0LDYuNTY3LDIuODU0czQuNjY1LTAuOTUxLDYuNTY3LTIuODU0bDE0LjI3Ny0xNC4yNjhjMS45MDMtMS45MDIsMi44NTYtNC4wOTMsMi44NTYtNi41NyAgICBjMC0yLjQ3MS0wLjk1My00LjY2MS0yLjg1Ni02LjU2M0w1MS4xMDcsMjYxLjIzM2wxMTIuMjA0LTExMi4yMDFDMTY1LjIxNywxNDcuMTMsMTY2LjE2NywxNDQuOTM5LDE2Ni4xNjcsMTQyLjQ2NXoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNNTE5LjYxNCwyNTQuNjYzTDM4Ni41NjcsMTIxLjYxOWMtMS45MDItMS45MDItNC4wOTMtMi44NTctNi41NjMtMi44NTdjLTIuNDc4LDAtNC42NjEsMC45NTUtNi41NywyLjg1N2wtMTQuMjcxLDE0LjI3NSAgICBjLTEuOTAyLDEuOTAzLTIuODUxLDQuMDktMi44NTEsNi41NjdzMC45NDgsNC42NjUsMi44NTEsNi41NjdsMTEyLjIwNiwxMTIuMjA0TDM1OS4xNjMsMzczLjQ0MiAgICBjLTEuOTAyLDEuOTAyLTIuODUxLDQuMDkzLTIuODUxLDYuNTYzYzAsMi40NzgsMC45NDgsNC42NjgsMi44NTEsNi41N2wxNC4yNzEsMTQuMjY4YzEuOTA5LDEuOTA2LDQuMDkzLDIuODU0LDYuNTcsMi44NTQgICAgYzIuNDcxLDAsNC42NjEtMC45NTEsNi41NjMtMi44NTRMNTE5LjYxNCwyNjcuOGMxLjkwMy0xLjkwMiwyLjg1NC00LjA5NiwyLjg1NC02LjU3ICAgIEM1MjIuNDY4LDI1OC43NTUsNTIxLjUxNywyNTYuNTY1LDUxOS42MTQsMjU0LjY2M3oiIGZpbGw9IiMwMDAwMDAiLz4KCTwvZz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8Zz4KPC9nPgo8L3N2Zz4K" />
+                        </a>
+                    </pixel32-button>
+                    <pixel32-button>
+                        <a href="#!/docs" target="_blank">
+                            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTkuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDUxMiA1MTIiIHN0eWxlPSJlbmFibGUtYmFja2dyb3VuZDpuZXcgMCAwIDUxMiA1MTI7IiB4bWw6c3BhY2U9InByZXNlcnZlIiB3aWR0aD0iMjRweCIgaGVpZ2h0PSIyNHB4Ij4KPGc+Cgk8Zz4KCQk8Zz4KCQkJPGNpcmNsZSBjeD0iMjU2IiBjeT0iMzc4LjUiIHI9IjI1IiBmaWxsPSIjMDAwMDAwIi8+CgkJCTxwYXRoIGQ9Ik0yNTYsMEMxMTQuNTE2LDAsMCwxMTQuNDk3LDAsMjU2YzAsMTQxLjQ4NCwxMTQuNDk3LDI1NiwyNTYsMjU2YzE0MS40ODQsMCwyNTYtMTE0LjQ5NywyNTYtMjU2ICAgICBDNTEyLDExNC41MTYsMzk3LjUwMywwLDI1NiwweiBNMjU2LDQ3MmMtMTE5LjM3NywwLTIxNi05Ni42MDctMjE2LTIxNmMwLTExOS4zNzcsOTYuNjA3LTIxNiwyMTYtMjE2ICAgICBjMTE5LjM3NywwLDIxNiw5Ni42MDcsMjE2LDIxNkM0NzIsMzc1LjM3NywzNzUuMzkzLDQ3MiwyNTYsNDcyeiIgZmlsbD0iIzAwMDAwMCIvPgoJCQk8cGF0aCBkPSJNMjU2LDEyOC41Yy00NC4xMTIsMC04MCwzNS44ODgtODAsODBjMCwxMS4wNDYsOC45NTQsMjAsMjAsMjBzMjAtOC45NTQsMjAtMjBjMC0yMi4wNTYsMTcuOTQ0LTQwLDQwLTQwICAgICBjMjIuMDU2LDAsNDAsMTcuOTQ0LDQwLDQwYzAsMjIuMDU2LTE3Ljk0NCw0MC00MCw0MGMtMTEuMDQ2LDAtMjAsOC45NTQtMjAsMjB2NTBjMCwxMS4wNDYsOC45NTQsMjAsMjAsMjAgICAgIGMxMS4wNDYsMCwyMC04Ljk1NCwyMC0yMHYtMzIuNTMxYzM0LjQ2Ni04LjkwMyw2MC00MC4yNiw2MC03Ny40NjlDMzM2LDE2NC4zODgsMzAwLjExMiwxMjguNSwyNTYsMTI4LjV6IiBmaWxsPSIjMDAwMDAwIi8+CgkJPC9nPgoJPC9nPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                        </a>
+                    </pixel32-button>
+                </pixel32-toolbar>
+                <pixel32-terminal slot="content"></pixel32-terminal>
+            </div>
+            <div slot="pages" id="editor">
+                <pixel32-toolbar>
+                    <pixel32-button>
+                        <a href="#!/terminal">
+                            <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTYuMC4wLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjwhRE9DVFlQRSBzdmcgUFVCTElDICItLy9XM0MvL0RURCBTVkcgMS4xLy9FTiIgImh0dHA6Ly93d3cudzMub3JnL0dyYXBoaWNzL1NWRy8xLjEvRFREL3N2ZzExLmR0ZCI+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCIgdmlld0JveD0iMCAwIDQ3MS4zNjIgNDcxLjM2MiIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgNDcxLjM2MiA0NzEuMzYyOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSI+CjxnPgoJPGc+CgkJPHBhdGggZD0iTTQ2OC43OTQsMzU1LjE3MWMtMS43MDctMS43MTgtMy44OTctMi41Ny02LjU2My0yLjU3SDE4OC4xNDVjLTIuNjY0LDAtNC44NTQsMC44NTMtNi41NjcsMi41NyAgICBjLTEuNzExLDEuNzExLTIuNTY1LDMuODk3LTIuNTY1LDYuNTYzdjE4LjI3NGMwLDIuNjYyLDAuODU0LDQuODUzLDIuNTY1LDYuNTYzYzEuNzEzLDEuNzEyLDMuOTAzLDIuNTcsNi41NjcsMi41N2gyNzQuMDg2ICAgIGMyLjY2NiwwLDQuODU2LTAuODU4LDYuNTYzLTIuNTdjMS43MTEtMS43MTEsMi41NjctMy45MDEsMi41NjctNi41NjN2LTE4LjI3NEM0NzEuMzY1LDM1OS4wNjgsNDcwLjUxMywzNTYuODgyLDQ2OC43OTQsMzU1LjE3MXoiIGZpbGw9IiMwMDAwMDAiLz4KCQk8cGF0aCBkPSJNMzAuMjU5LDg1LjA3NWMtMS45MDMtMS45MDMtNC4wOTMtMi44NTYtNi41NjctMi44NTZzLTQuNjYxLDAuOTUzLTYuNTYzLDIuODU2TDIuODUyLDk5LjM1MyAgICBDMC45NSwxMDEuMjU1LDAsMTAzLjQ0MiwwLDEwNS45MThjMCwyLjQ3OCwwLjk1LDQuNjY0LDIuODUyLDYuNTY3TDExNS4wNiwyMjQuNjlMMi44NTIsMzM2Ljg5NkMwLjk1LDMzOC43OTksMCwzNDAuOTg5LDAsMzQzLjQ2ICAgIGMwLDIuNDc4LDAuOTUsNC42NjUsMi44NTIsNi41NjdsMTQuMjc2LDE0LjI3M2MxLjkwMywxLjkwNiw0LjA4OSwyLjg1NCw2LjU2MywyLjg1NHM0LjY2NS0wLjk1MSw2LjU2Ny0yLjg1NGwxMzMuMDQ4LTEzMy4wNDUgICAgYzEuOTAzLTEuOTAyLDIuODUzLTQuMDk2LDIuODUzLTYuNTdjMC0yLjQ3My0wLjk1LTQuNjYzLTIuODUzLTYuNTY1TDMwLjI1OSw4NS4wNzV6IiBmaWxsPSIjMDAwMDAwIi8+Cgk8L2c+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                        </a>
+                    </pixel32-button>
+                    <pixel32-button id="run" disabled>
+                        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIzMi4xNTMgMjMyLjE1MyIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjMyLjE1MyAyMzIuMTUzOyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnIGlkPSJQbGF5Ij4KCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDsiIGQ9Ik0yMDMuNzkxLDk5LjYyOEw0OS4zMDcsMi4yOTRjLTQuNTY3LTIuNzE5LTEwLjIzOC0yLjI2Ni0xNC41MjEtMi4yNjYgICBjLTE3LjEzMiwwLTE3LjA1NiwxMy4yMjctMTcuMDU2LDE2LjU3OHYxOTguOTRjMCwyLjgzMy0wLjA3NSwxNi41NzksMTcuMDU2LDE2LjU3OWM0LjI4MywwLDkuOTU1LDAuNDUxLDE0LjUyMS0yLjI2NyAgIGwxNTQuNDgzLTk3LjMzM2MxMi42OC03LjU0NSwxMC40ODktMTYuNDQ5LDEwLjQ4OS0xNi40NDlTMjE2LjQ3MSwxMDcuMTcyLDIwMy43OTEsOTkuNjI4eiIgZmlsbD0iIzAwMDAwMCIvPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+CjxnPgo8L2c+Cjwvc3ZnPgo=" />
+                    </pixel32-button>
+                    <pixel32-button id="stop" disabled>
+                        <img src="data:image/svg+xml;utf8;base64,PD94bWwgdmVyc2lvbj0iMS4wIiBlbmNvZGluZz0iaXNvLTg4NTktMSI/Pgo8IS0tIEdlbmVyYXRvcjogQWRvYmUgSWxsdXN0cmF0b3IgMTguMS4xLCBTVkcgRXhwb3J0IFBsdWctSW4gLiBTVkcgVmVyc2lvbjogNi4wMCBCdWlsZCAwKSAgLS0+CjxzdmcgeG1sbnM9Imh0dHA6Ly93d3cudzMub3JnLzIwMDAvc3ZnIiB4bWxuczp4bGluaz0iaHR0cDovL3d3dy53My5vcmcvMTk5OS94bGluayIgdmVyc2lvbj0iMS4xIiBpZD0iQ2FwYV8xIiB4PSIwcHgiIHk9IjBweCIgdmlld0JveD0iMCAwIDIzMi42NzkgMjMyLjY3OSIgc3R5bGU9ImVuYWJsZS1iYWNrZ3JvdW5kOm5ldyAwIDAgMjMyLjY3OSAyMzIuNjc5OyIgeG1sOnNwYWNlPSJwcmVzZXJ2ZSIgd2lkdGg9IjI0cHgiIGhlaWdodD0iMjRweCI+CjxnIGlkPSJTdG9wIj4KCTxwYXRoIHN0eWxlPSJmaWxsLXJ1bGU6ZXZlbm9kZDtjbGlwLXJ1bGU6ZXZlbm9kZDsiIGQ9Ik0yMTQuNzgxLDBIMTcuODk4QzguMDEzLDAsMCw4LjAxNCwwLDE3Ljg5OHYxOTYuODgzICAgYzAsOS44ODUsOC4wMTMsMTcuODk4LDE3Ljg5OCwxNy44OThoMTk2Ljg4M2M5Ljg4NiwwLDE3Ljg5OC04LjAxMywxNy44OTgtMTcuODk4VjE3Ljg5OEMyMzIuNjc5LDguMDE0LDIyNC42NjYsMCwyMTQuNzgxLDB6IiBmaWxsPSIjMDAwMDAwIi8+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPGc+CjwvZz4KPC9zdmc+Cg==" />
+                    </pixel32-button>
+                </pixel32-toolbar>
+                <pixel32-text-editor></pixel32-text-editor>
+            </div>
+            <div slot="pages" id="docs">
+                Docs
+            </div>
+        </pixel32-shell>
+        <script type="text/javascript" src="node_modules/navigo/lib/navigo.min.js"></script>
+        <script type="text/javascript" src="node_modules/webrepl-client/webrepl.iife.js"></script>
         <script type="text/javascript" src="node_modules/xterm/dist/xterm.js"></script>
-        <!-- WEBREPL CLIENT -->
-        <script type="text/javascript" src="node_modules/webrepl-client/webrepl.js"></script>
-        <!-- APPLICATION -->
-        <script type="text/javascript" src="main.js"></script>
-        <!-- endsmoosh -->
+        <script type="text/javascript" src="node_modules/codemirror/lib/codemirror.js"></script>
+        <script type="text/javascript" src="node_modules/codemirror/mode/python/python.js"></script>
+        <script type="text/javascript" src="src/data/text.js"></script>
+        <script type="text/javascript" src="src/components/base-component.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-small-screen.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-shell.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-toolbar.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-button.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-terminal.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-text-editor.js"></script>
+        <script type="text/javascript" src="src/components/pixel32-docs.js"></script>
+        <script type="text/javascript" src="src/terminal-handler.js"></script>
+        <script type="text/javascript" src="src/main.js"></script>
+        <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
+        <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
     </body>
 </html>
