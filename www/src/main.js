@@ -1,12 +1,13 @@
 window.onload = () => {
     // Create variable for repl
     let repl
+    // Autosave timeout id and delay time
     let autoSaveTimeout = 0
     let autoSaveDelay = 2000
 
     // Hide loading when window is loaded
     let loading = document.querySelector('#loading')
-    loading.style.display = 'none';
+    loading.style.display = 'none'
 
     // Get HTML elements
     let shell = document.querySelector('pixel32-shell')
@@ -36,20 +37,29 @@ window.onload = () => {
 
     // offline terminal handler
     let termHandler = new TerminalHandler(terminal.term)
+    // Print offline message
     termHandler.bootOffline()
+    // Create a reference for keyboard input handler and bind it to terminal
     let disconnectedOnKey = termHandler.onKey.bind(termHandler)
     terminal.addEventListener('key', disconnectedOnKey)
+    // Once terminal parses a command to connect, it calls `connectIp`
     termHandler.connectIp = (ip) => {
+        // Unbind keyboard input handler
         terminal.removeEventListener('key', disconnectedOnKey)
+
         terminal.write('\r\n')
         terminal.write('Connecting...\r\n')
+
+        // Connect to WebREPL
         repl = new WebREPL.WebREPL({
             ip: ip,
             password: '123456',
             autoConnect: true,
             autoAuth: true
         })
+
         repl.on('authenticated', () => {
+            // Print connected terminal header
             termHandler.bootOnline()
             terminal.addEventListener('key', (e) => {
                 repl.eval(e.detail.key)
@@ -71,6 +81,7 @@ window.onload = () => {
             textEditor.setValue(code)
         }
     } catch(e) { console.log(e) }
+    // Debounce change events to autosave code on local storage
     textEditor.addEventListener('change', (e) => {
         clearTimeout(autoSaveTimeout)
         autoSaveTimeout = setTimeout(() => {
