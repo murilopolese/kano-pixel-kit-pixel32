@@ -7,8 +7,6 @@ import socket
 from _thread import start_new_thread
 from time import sleep
 
-def docs():
-    print('!open docs.html')
 def ls(path=''):
     for f in os.listdir(path):
         print(f)
