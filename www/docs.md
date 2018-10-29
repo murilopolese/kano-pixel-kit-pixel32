@@ -240,9 +240,7 @@ Try this example and see what happens:
 ```python
 from PixelTurtle import *
 
-import PixelKit as kit
-kit.set_background(yellow)
-kit.render()
+setColor(blue)
 setHeadingColor(green)
 left(1)
 forward(2)
@@ -257,6 +255,7 @@ Try this example and see what happens:
 
 ```python
 from PixelTurtle import *
+from time import sleep
 
 penUp()
 clear()
@@ -264,7 +263,8 @@ while True:
 	current_y = getY()
 	if current_y == 7 or current_y == 0:
 		left(4)
-		forward()
+	forward()
+	sleep(0.1)
 ```
 
 ## Aliases
@@ -345,6 +345,7 @@ The Pixel Kit Library has no `forward()` or `left()` commands but instead it has
 For example if we want to set a white pixel on the top left corner of our Pixel Kit we should write something like this:
 
 ```python
+white = [10, 10, 10]
 kit.set_pixel(0, 0, white)
 kit.render()
 ```
@@ -352,6 +353,8 @@ kit.render()
 When combined with repetition and functions we can draw anything we imagine (and fits on the Pixel Kit LEDs):
 
 ```python
+red = [10, 0, 0]
+
 def rectangle(x, y, width, height, color):
   for i in range(0, width):
     for j in range(0, height):
@@ -378,6 +381,7 @@ This is very usefull but what if we are drawing not on top of a `black` backgrou
 That is why we also have a `set_background(color)` command. `set_background(color)` will do the same as `clear()` but instead of setting all the LEDs to `black` it will set them to a color we can choose. This way we don't have to `clear()` and `set_background(color)` but just `set_background(color)`.. Something like this:
 
 ```python
+green = [0, 10, 0]
 kit.set_background(green)
 kit.render()
 ```
@@ -401,6 +405,8 @@ On top of our Pixel kit you will find the dial. There are some drawings on it to
 The quick way to know if a button is pressed is by checking its value. You can check it by evaluating its value on the console or by printing the value. To print the value of the button A we can write something like this:
 
 ```python
+print() # Prints an empty line to make it easy to read
+print('BUTTON A VALUE:')
 print(kit.button_a.value())
 ```
 
@@ -411,7 +417,7 @@ And we will see on the console a number `0` or `1`. If the buttons is being pres
 If you don't like to print the value you can use the LEDs to tell you if the button is pressed or not. For that we can store the button value on a variable and make a decision based on it. The code would be something like this:
 
 ```python
-buttonAValue = kit.buttonA.value()
+buttonAValue = kit.button_a.value()
 if buttonAValue == 1:
   kit.set_background(yellow)
 else:
@@ -429,7 +435,7 @@ There is a trick to keep the code running, asking the value and changing the bac
 from time import sleep
 
 while True:
-  buttonAValue = kit.buttonA.value()
+  buttonAValue = kit.button_a.value()
   if buttonAValue == 1:
     kit.set_background(yellow)
   else:
@@ -449,6 +455,8 @@ Notice the `sleep()` command being imported on the begining of the code and used
 We can also check what is the dial value. It's as simple as checking the button except instead of calling `buttonA.value()` for example we'll call `dial.read()`. The code is something like this:
 
 ```python
+print() # Prints an empty line to make it easy to read
+print('DIAL VALUE:')
 print(kit.dial.read())
 ```
 
@@ -551,8 +559,9 @@ Conditions are the way we tell the computer to make decisions. To create a condi
 For example if we want to draw a line but we want it to have 2 colors we could do something like this:
 
 ```python
-for i in range(0, 10);
-    if i > 5:
+from PixelTurtle import *
+for i in range(0, 4):
+    if i > 1:
         setColor(green)
     else:
         setColor(cyan)
@@ -631,3 +640,7 @@ square()
 setColor(red)
 square(3)
 ```
+
+<br/>
+<br/>
+<br/>

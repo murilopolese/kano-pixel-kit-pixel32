@@ -1,28 +1,32 @@
 {
-  "name": "pixel32-terminal",
-  "version": "0.1.1",
-  "description": "Code MicroPython on your Pixel Kit on the browser",
-  "main": "index.html",
-  "author": "Murilo Polese <murilopolese@gmail.com>",
-  "license": "MIT",
-  "private": true,
-  "scripts": {
-      "build": "./node_modules/.bin/gulp"
-  },
-  "dependencies": {
-    "webrepl-client": "murilopolese/webrepl-client",
-    "xterm": "^3.7.0"
-  },
-  "devDependencies": {
-    "ejs": "^2.6.1",
-    "gulp": "^3.9.1",
-    "gulp-clean": "^0.4.0",
-    "gulp-gzip": "^1.4.2",
-    "gulp-htmlmin": "jonschlinkert/gulp-htmlmin",
-    "gulp-layout": "^0.0.4",
-    "gulp-markdown": "^3.0.0",
-    "gulp-minify-inline": "^1.0.0",
-    "gulp-smoosher": "^0.0.9",
-    "run-sequence": "^2.2.1"
-  }
+    "name": "pixel32-terminal",
+    "version": "0.1.2",
+    "description": "Code MicroPython on your Pixel Kit on the browser",
+    "main": "index.html",
+    "author": "Murilo Polese <murilopolese@gmail.com>",
+    "license": "MIT",
+    "private": true,
+    "scripts": {
+        "build": "./node_modules/.bin/gulp"
+    },
+    "dependencies": {
+        "codemirror": "^5.41.0",
+        "custom-elements": "^1.0.2",
+        "navigo": "^7.1.2",
+        "webrepl-client": "murilopolese/webrepl-client#0.2.1",
+        "xterm": "^3.7.0"
+    },
+    "devDependencies": {
+        "ejs": "^2.6.1",
+        "gulp": "^3.9.1",
+        "gulp-clean": "^0.4.0",
+        "gulp-gzip": "^1.4.2",
+        "gulp-htmlmin": "jonschlinkert/gulp-htmlmin",
+        "gulp-layout": "^0.0.4",
+        "gulp-markdown": "^3.0.0",
+        "gulp-minify-inline": "^1.0.0",
+        "gulp-rename": "^1.4.0",
+        "gulp-smoosher": "^0.0.9",
+        "run-sequence": "^2.2.1"
+    }
 }
