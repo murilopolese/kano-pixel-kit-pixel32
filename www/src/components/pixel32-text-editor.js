@@ -1,7 +1,7 @@
 class TextEditorComponent extends BaseElement {
     constructor() {
         super()
-        this.code = '# Write MicroPython here!'
+        this.code = '# Write MicroPython here!\n\n\n\n\n\n\n\n\n'
     }
     template() {
         return `
@@ -20,12 +20,15 @@ class TextEditorComponent extends BaseElement {
     height: 100%;
 }
 .CodeMirror {
-    height: calc(100% - 20px);
-    padding: 10px 0;
-    font-size: 18px
+    height: 100%;
+    font-size: 18px;
 }
 .CodeMirror pre {
     padding-left: 13px;
+}
+.CodeMirror-linenumber {
+    border-right: solid #666666;
+    background: #333333;
 }
 </style>
 <div id="editor"></div>
@@ -57,3 +60,4 @@ class TextEditorComponent extends BaseElement {
         }))
     }
 }
+customElements.define('pixel32-text-editor', TextEditorComponent)

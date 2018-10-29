@@ -8,7 +8,7 @@ class ToolbarComponent extends BaseElement {
         justify-content: flex-start;
         align-items: center;
         padding: 10px 10px;
-        height: calc(100% - 30px);
+        height: calc(100% - 20px);
     }
     ::slotted(*) {
         margin-bottom: 10px;

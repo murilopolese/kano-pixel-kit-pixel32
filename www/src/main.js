@@ -114,4 +114,3 @@ window.onload = () => {
         repl.sendStop()
     }
 }
-customElements.define('pixel32-text-editor', TextEditorComponent)
