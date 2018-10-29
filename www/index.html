@@ -63,16 +63,19 @@
                 <pixel32-text-editor></pixel32-text-editor>
             </div>
             <div slot="pages" id="docs">
-                Docs
+                <pixel32-docs>
+                    <%- contents %>
+                </pixel32-docs>
             </div>
         </pixel32-shell>
+        <!-- smoosh -->
         <script type="text/javascript" src="node_modules/navigo/lib/navigo.min.js"></script>
         <script type="text/javascript" src="node_modules/webrepl-client/webrepl.iife.js"></script>
         <script type="text/javascript" src="node_modules/xterm/dist/xterm.js"></script>
         <script type="text/javascript" src="node_modules/codemirror/lib/codemirror.js"></script>
         <script type="text/javascript" src="node_modules/codemirror/mode/python/python.js"></script>
-        <script type="text/javascript" src="src/data/text.js"></script>
-        <script type="text/javascript" src="src/components/base-component.js"></script>
+        <script type="text/javascript" src="src/text.js"></script>
+        <script type="text/javascript" src="src/components/base-element.js"></script>
         <script type="text/javascript" src="src/components/pixel32-small-screen.js"></script>
         <script type="text/javascript" src="src/components/pixel32-shell.js"></script>
         <script type="text/javascript" src="src/components/pixel32-toolbar.js"></script>
@@ -82,6 +85,7 @@
         <script type="text/javascript" src="src/components/pixel32-docs.js"></script>
         <script type="text/javascript" src="src/terminal-handler.js"></script>
         <script type="text/javascript" src="src/main.js"></script>
+        <!-- endsmoosh -->
         <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/dave-gandy" title="Dave Gandy">Dave Gandy</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
         <!-- <div>Icons made by <a href="https://www.flaticon.com/authors/egor-rumyantsev" title="Egor Rumyantsev">Egor Rumyantsev</a> from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a> is licensed by <a href="http://creativecommons.org/licenses/by/3.0/" title="Creative Commons BY 3.0" target="_blank">CC 3.0 BY</a></div> -->
     </body>

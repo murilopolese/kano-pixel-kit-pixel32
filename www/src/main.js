@@ -102,7 +102,7 @@ window.onload = () => {
     }
 
     let runCode = () => {
-        disableButtons()
+        runButton.setAttribute('disabled', true)
         router.navigate('/terminal')
         repl.execFromString(textEditor.getValue(), 30)
             .then(() => {

@@ -25,6 +25,7 @@
         "gulp-layout": "^0.0.4",
         "gulp-markdown": "^3.0.0",
         "gulp-minify-inline": "^1.0.0",
+        "gulp-rename": "^1.4.0",
         "gulp-smoosher": "^0.0.9",
         "run-sequence": "^2.2.1"
     }

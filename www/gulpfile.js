@@ -7,13 +7,14 @@ const smoosher = require('gulp-smoosher')
 const gzip = require('gulp-gzip')
 const htmlmin = require('gulp-htmlmin')
 const minifyInline = require('gulp-minify-inline')
+const rename = require('gulp-rename')
 
 gulp.task('clean', () => {
     return gulp.src('./dist')
         .pipe(clean())
 })
 
-gulp.task('build-terminal', () => {
+gulp.task('build-app', () => {
     return gulp.src('./index.html')
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(smoosher())
@@ -27,18 +28,18 @@ gulp.task('build-docs', () => {
     return gulp.src('./docs.md')
         .pipe(markdown())
         .pipe(layout({
-            layout: './docs.html',
+            layout: './index.html',
             engine: 'ejs'
         }))
         .pipe(htmlmin({ collapseWhitespace: true }))
         .pipe(smoosher())
         .pipe(minifyInline())
+        .pipe(rename('index.html'))
         .pipe(gulp.dest('./dist'))
         .pipe(gzip())
         .pipe(gulp.dest('./dist'))
 })
 
-
 gulp.task('default', (cb) => {
-    runSequence('clean', ['build-terminal', 'build-docs'], cb)
+    runSequence('clean', ['build-docs'], cb)
 })
