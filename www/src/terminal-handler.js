@@ -79,21 +79,11 @@ class TerminalHandler {
             && !arrowLeft && !arrowRight && !arrowUp && !arrowDown
         )
         if (ev.keyCode == 13) { // ENTER
-            if(this.cmdBuffer[0] && this.cmdBuffer[0] != this.cmdBuffer[1]) {
-                this.saveCmdBuffer()
-            }
-            this.parseCmd(this.cmdBuffer[0])
+            this.onEnter()
         } else if (ev.keyCode == 8) { // BACKSPACE
-            let x = this.term._core.buffers.active.x
-            // Delete last character
-            if (x > 2) {
-                this.term.write('\b \b')
-                this.cmdBuffer[0] = this.cmdBuffer[0].slice(0, -1)
-            }
+            this.onBackspace()
         } else if (isPrintable) { // PRINTABLE CHARACTER
-            this.cmdBuffer[0] += key
-            this.cmdBufferIndex = 0
-            this.term.write(key)
+            this.onCharacter(key)
         } else { // ARROWS
             if (arrowUp || arrowDown) {
                 if(arrowUp) {
@@ -108,6 +98,26 @@ class TerminalHandler {
                 this.cmdBuffer[0] = newLine
             }
         }
+    }
+
+    onEnter() {
+        if(this.cmdBuffer[0] && this.cmdBuffer[0] != this.cmdBuffer[1]) {
+            this.saveCmdBuffer()
+        }
+        this.parseCmd(this.cmdBuffer[0])
+    }
+    onBackspace() {
+        let x = this.term._core.buffers.active.x
+        // Delete last character
+        if (x > 2) {
+            this.term.write('\b \b')
+            this.cmdBuffer[0] = this.cmdBuffer[0].slice(0, -1)
+        }
+    }
+    onCharacter(key) {
+        this.cmdBuffer[0] += key
+        this.cmdBufferIndex = 0
+        this.term.write(key)
     }
 
     bootOffline() {
