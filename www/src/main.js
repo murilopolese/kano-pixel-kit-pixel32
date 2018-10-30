@@ -15,6 +15,12 @@ window.onload = () => {
     let textEditor = document.querySelector('pixel32-text-editor')
     let runButton = document.querySelector('#run')
     let stopButton = document.querySelector('#stop')
+    let downloadButton = document.querySelector('#download')
+
+    // Hide download button if opening from `file:` protocol
+    if (window.location.protocol === 'file:') {
+        downloadButton.style.display = 'none'
+    }
 
     // Setting up router
     let root = null;
