@@ -1,6 +1,6 @@
 {
     "name": "pixel32-terminal",
-    "version": "0.1.2",
+    "version": "0.2.1",
     "description": "Code MicroPython on your Pixel Kit on the browser",
     "main": "index.html",
     "author": "Murilo Polese <murilopolese@gmail.com>",
