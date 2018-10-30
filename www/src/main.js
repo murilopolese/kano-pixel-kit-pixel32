@@ -13,13 +13,20 @@ window.onload = () => {
     let shell = document.querySelector('pixel32-shell')
     let terminal = document.querySelector('pixel32-terminal')
     let textEditor = document.querySelector('pixel32-text-editor')
+    let smallScreen = document.querySelector('pixel32-small-screen')
     let runButton = document.querySelector('#run')
     let stopButton = document.querySelector('#stop')
     let downloadButton = document.querySelector('#download')
 
+
     // Hide download button if opening from `file:` protocol
     if (window.location.protocol === 'file:') {
         downloadButton.style.display = 'none'
+    }
+    if (window.location.protocol === 'http:') {
+        // Setting current url to "small screen" message if displaying from
+        // http protocol
+        smallScreen.setAttribute('url', window.location.href)
     }
 
     // Setting up router
