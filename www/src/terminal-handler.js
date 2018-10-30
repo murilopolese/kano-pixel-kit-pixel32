@@ -3,7 +3,7 @@ class TerminalHandler {
     // term must be an instance of Terminal (xtermjs)
     constructor(term) {
         this.term = term
-        this.cmdBuffer = []
+        this.cmdBuffer = ['']
         this.cmdBufferIndex = 0
         this.loadCmdBuffer()
     }
