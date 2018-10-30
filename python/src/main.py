@@ -12,7 +12,8 @@ def ls(path=''):
 
 if not sta.active() and ap.active():
 	ip = ap.ifconfig()[0]
-	MicroDNSSrv.Create({ '*' : ip })
+    # CAPTIVE PORTAL
+	# MicroDNSSrv.Create({ '*' : ip })
 elif sta.active() and not ap.active():
 	ip = sta.ifconfig()[0]
 
