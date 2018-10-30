@@ -38,7 +38,6 @@ window.onload = () => {
         shell.setAttribute('selected', 'docs')
         shell.setAttribute('fullheight', true)
     })
-    router.on(function() {})
     router.resolve()
 
     // offline terminal handler
