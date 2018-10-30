@@ -79,6 +79,21 @@ window.onload = () => {
         })
     }
 
+    // Handling paste
+    terminal.term.on('paste', (data) => {
+        if (repl) {
+            // If connected, print "warning" message
+            terminal.write(`\r\nUse the Text Editor to paste code`)
+            repl.eval('\r')
+        } else {
+            // If disconnected, evaluate first "line" of pasted data
+            let lines = data.split('\n')
+            lines[0].split('').forEach((char) => {
+                termHandler.onCharacter(char)
+            })
+        }
+    })
+
     // Load code from local storage
     try {
         let code = localStorage.getItem('code')
