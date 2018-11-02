@@ -1,8 +1,6 @@
 ---
-# Feel free to add content and custom Front Matter to this file.
-# To modify the layout, see https://jekyllrb.com/docs/themes/#overriding-theme-defaults
-
 layout: home
+title: 'Pixel32 - Code MicroPython on your Pixel Kit on the browser!'
 ---
 
 ![](https://i.imgur.com/RbWlvMw.png)
