@@ -8,7 +8,7 @@ Pixel32 is a MicroPython application running on Kano Pixel Kit that allows it to
 
 ## Installing Pixel32: The easy way
 
-Download [Pixel Kit Flash Tool](https://github.com/murilopolese/kano-pixel-kit-flash-tool) and flash MicroPython on it (it's actually Pixel32).
+Download [Pixel Kit Flash Tool](https://github.com/murilopolese/kano-pixel-kit-flash-tool) and flash MicroPython on it (it will come with Pixel32).
 
 ## Installing Pixel32: The hard way
 
