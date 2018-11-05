@@ -2,7 +2,7 @@
 layout: post
 title: "Turtle's Random Walk"
 cover: "/assets/turtle_random_walk.gif"
-excerpt: "Turtle walks randomly on the screen!"
+excerpt: "Pixel Turtle walks randomly on the screen!"
 ---
 
 ## Turtle's Random Walk
