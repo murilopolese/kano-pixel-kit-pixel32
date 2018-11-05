@@ -10,6 +10,20 @@ img {
     max-width: 100%;
 }
 
+code, pre {
+    font-size: 16px;
+    font-weight: bold;
+    background: #d2dae2;
+    border-radius: 5px;
+}
+code {
+    padding: 1px 3px;
+}
+pre {
+    padding: 12px;
+    overflow-x: auto;
+}
+
 ul.unstyled {
     list-style: none;
     padding-inline-start: 0px;
@@ -67,4 +81,9 @@ a:hover {
 .video {
     max-width: 100%;
     width: 100%;
+}
+
+.documentation img {
+    width: 60%;
+    margin-left: 20%;
 }
