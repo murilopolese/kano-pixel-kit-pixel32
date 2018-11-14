@@ -28,5 +28,8 @@
         "gulp-rename": "^1.4.0",
         "gulp-smoosher": "^0.0.9",
         "run-sequence": "^2.2.1"
+    },
+    "engines": {
+        "node": "v8.12.0"
     }
 }
