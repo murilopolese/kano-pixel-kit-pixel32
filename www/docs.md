@@ -53,7 +53,7 @@ This will save this information on a file called `wifi.py` that is used by Pixel
 
 If you turn on your Pixel Kit and only see a green and a yellow pixel it's because you probably have the Pixel Turtle library installed and running on your Pixel Kit already!
 
-Otherwise run the execute code:
+Otherwise run the following code:
 
 ```python
 from PixelTurtle import *

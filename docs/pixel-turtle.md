@@ -9,7 +9,13 @@ layout: documentation
 
 If you turn on your Pixel Kit and only see a green and a yellow pixel it's because you probably have the Pixel Turtle library installed and running on your Pixel Kit already!
 
-<!-- If that is not the case, check [How to Install and Use Pixel Kit MicroPython Libraries](getting-started.html#install-libraries). -->
+Otherwise run the following code:
+
+```python
+from PixelTurtle import *
+clear()
+moveTo(8, 4)
+```
 
 Imagine the green pixel as if it was a turtle seen from above and the yellow pixel is where the turtle is heading for.
 
