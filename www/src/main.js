@@ -136,6 +136,10 @@ window.onload = () => {
                 enableButtons()
                 router.navigate('/editor')
             })
+            .catch((e) => {
+                console.log('error', e)
+                enableButtons()
+            })
     }
     let stopCode = () => {
         repl.sendStop()
