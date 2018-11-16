@@ -14,17 +14,7 @@ gulp.task('clean', () => {
         .pipe(clean())
 })
 
-gulp.task('build-app', () => {
-    return gulp.src('./index.html')
-        .pipe(htmlmin({ collapseWhitespace: true }))
-        .pipe(smoosher())
-        .pipe(minifyInline())
-        .pipe(gulp.dest('./dist'))
-        .pipe(gzip())
-        .pipe(gulp.dest('./dist'))
-})
-
-gulp.task('build-docs', () => {
+gulp.task('build', () => {
     return gulp.src('./docs.md')
         .pipe(markdown())
         .pipe(layout({
@@ -41,5 +31,5 @@ gulp.task('build-docs', () => {
 })
 
 gulp.task('default', (cb) => {
-    runSequence('clean', ['build-docs'], cb)
+    runSequence('clean', ['build'], cb)
 })
