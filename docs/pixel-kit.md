@@ -28,21 +28,21 @@ kit.render()
 
 ## Setting and Rendering
 
-On Pixel Turtle, every time we tell a word like `forward()` the turtle automatically move forward and draw on screen (if the "pen" is down). That is very useful but presend a problem:
+On Pixel Turtle, every time we tell a word like `forward()` the turtle automatically move forward and draw on screen (if the "pen" is down). That is very useful, but it presents a problem:
 
 What happens if we want a full drawing to appear on the screen at once?
 
-For example if we want to color the entire screen at once, we can't do that with Pixel Turtle because it will draw line by line, column by column and the screen will get color in different moments.
+For example if we want to color the entire screen at once, we can't do that with Pixel Turtle because it will draw line by line, column by column, and the screen will get color in different moments.
 
-So that is why in Pixel Kit library we separate drawing in two phase:
+So that is why in Pixel Kit library we separate drawing in two phases:
 
 ### Buffer
 
-When we call the drawing commands on Pixel Kit library, nothing will be updated on the LEDs. That is because we are not drawing directly to the LEDs. Imagine we are drawing on a ghost screen that eventually we can stamp into the real LED screen. This ghost screen is what we call a "buffer". All the drawing commands on Pixel Kit are actually drawing on the buffer and not directly on the screen.
+When we call the drawing commands on Pixel Kit library, nothing will be updated on the LEDs. That is because we are not drawing directly to the LEDs. Imagine we are drawing on a ghost screen that, eventually, we can stamp into the real LED screen. This ghost screen is what we call a "buffer". All the drawing commands on Pixel Kit are actually drawing on the buffer and not directly on the screen.
 
-The reason for drawing on a buffer first is because we want to be able to finish our drawing first and then draw it at once on our screen.
+The reason for drawing on a buffer first is because we want to be able to finish our drawing first, and then draw it at once on our screen.
 
-For example if we want draw a background, a sky and some trees on the ground. We need to write separated code to each of those things we want to draw and they will be executed one after the other by the Pixel Kit but sometimes we want to have the impression it's all done at once. That is possible by drawing to the buffer first as many times as we want and then rendering it to the LEDs.
+For example, if we want to draw a background -- a sky and some trees on the ground -- we need to write a separate piece of code for each of those, and they will be executed one after the other by the Pixel Kit. Sometimes, however, we want to have the impression it's all done at once. That is possible by drawing to the buffer first as many times as we want, and then rendering it to the LEDs.
 
 ### Rendering
 
@@ -54,14 +54,14 @@ The only thing we need to pay attention is that `render()` takes a few fractions
 
 The Pixel Kit Library has no `forward()` or `left()` commands but instead it has `set_pixel(x, y, color)` that is very similar to Pixel Turtle's `moveTo(x, y)` except that we have to specify which color you want to set the Pixel.
 
-For example if we want to set a white pixel on the top left corner of our Pixel Kit we should write something like this:
+For example, if we want to set a white pixel on the top left corner of our Pixel Kit, we should write something like this:
 
 ```python
 kit.set_pixel(0, 0, white)
 kit.render()
 ```
 
-When combined with [repetition](programming-in-python.html#repetition) and [functions](programming-in-python.html#functions) we can draw anything we imagine (and fits on the Pixel Kit LEDs):
+When combined with [repetition](programming-in-python.html#repetition) and [functions](programming-in-python.html#functions), we can draw anything we imagine (and fits on the Pixel Kit LEDs):
 
 ```python
 def rectangle(x, y, width, height, color):
@@ -85,20 +85,20 @@ kit.clear()
 kit.render()
 ```
 
-This is very usefull but what if we are drawing not on top of a `black` background but on top of a `green` background? We would need to `clear()`, then set all our LEDs to `green`. That will work but as we grow our code it will start to be very slow.
+This is very usefull, but what if we are drawing not on top of a `black` background but on top of a `green` background? We would need to `clear()`, then set all our LEDs to `green`. That will work but as we grow our code it will start to be very slow.
 
-That is why we also have a `set_background(color)` command. `set_background(color)` will do the same as `clear()` but instead of setting all the LEDs to `black` it will set them to a color we can choose. This way we don't have to `clear()` and `set_background(color)` but just `set_background(color)`.. Something like this:
+That is why we also have a `set_background(color)` command. `set_background(color)` will do the same as `clear()`, but instead of setting all the LEDs to `black`, it will set them to a color we can choose. This way, we don't have to `clear()` and `set_background(color)` but just `set_background(color)`. Something like this:
 
 ```python
 kit.set_background(green)
 kit.render()
 ```
 
-If you call `set_background()` without any color it will set all the LEDs to `yellow` by default.
+If you call `set_background()` without any color, it will set all the LEDs to `yellow` by default.
 
 ## Buttons and Dial values
 
-There are a few ways to ask Pixel Kit if a button is pressed and what to do when this it's pressed. The same works for the dial on top of Pixel Kit. Usually it's helpful understand what are the options to choose which one is the best for us as different ways to ask will give us some advantages and some disadvantages.
+There are a few ways to ask the Pixel Kit if a button is pressed, and what to do when this it's pressed. The same works for the dial on top of the Pixel Kit. Usually, it's helpful understand what are the options to choose which one is the best for us as different ways to ask will give us some advantages and some disadvantages.
 
 Before we can read the buttons and dial, let's list all the available buttons.
 
