@@ -69,7 +69,7 @@ def connect(ssid, password):
     ap.active(False)
     sta.active(True)
     sta.connect(ssid, password)
-    timeout = 50
+    timeout = 150 # Wait around 15 seconds
     while not sta.isconnected():
         utime.sleep_ms(100)
         timeout -= 1
