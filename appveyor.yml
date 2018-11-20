@@ -1,0 +1,27 @@
+image: ubuntu1804
+
+version: 0.2.2-{branch}.{build}
+
+services:
+    - docker
+
+branches:
+  only:
+    - master
+
+build_script:
+    - docker run -v ${APPVEYOR_BUILD_FOLDER}/build:/build murilopolese/pixel32-build:latest
+
+artifacts:
+    - path: build/pixel32.img
+
+deploy:
+    release: v$(APPVEYOR_BUILD_VERSION)
+    description: $(APPVEYOR_REPO_COMMIT_MESSAGE_EXTENDED)
+    provider: GitHub
+    auth_token:
+        secure: MkcLF/KRxO+M0R+3Bav0L1n64zGja1dx1HvTxv+UaHD5kmJT6lnQp0BGWjXYX77O
+    artifact: build/pixel32.img
+    draft: true
+    on:
+        branch: master
