@@ -38,32 +38,37 @@ The Pixel Kit ip address while displaying the blue screen will never change: it 
 
 ## Known problems/bugs:
 
-- There is no documentation to say you can access the terminal page on Pixel Kit’s ip address.
-- It would be better to not need a Pixel Kit to build the firmware.
 - Documentation anchor links overrides link (refresh will cause to show the terminal page)
 
-## Building
+## Building it yourself
 
-### At once
+Use the [Docker image](https://github.com/murilopolese/kano-pixel-kit-pixel32-docker-build) to build the front end and create a FAT partition to flash into your Pixel Kit.
 
-Run `sh build.sh [version] [/path/to/pixel/kit]`, for example:
+Otherwise there are 2 steps for the build.
 
-```shell
-$ sh ./build.sh 0.0.1 /dev/tty.pixelkitpath
+### Building the front end
+
+1. Run yarn install on www folder.
+1. Run yarn run build on www folder.
+
+### Creating the FAT partition
+
+Check the [Dockerfile](https://github.com/murilopolese/kano-pixel-kit-pixel32-docker-build/blob/master/Dockerfile) for what software you should have installed and the [build script](https://github.com/murilopolese/kano-pixel-kit-pixel32-docker-build/blob/master/scripts/build.sh) to see how to create, format and transfer files to a FAT partition.
+
+### Flashing the Pixel Kit
+
+Ideally you would use [Pixel Kit Flash Tool](https://github.com/murilopolese/kano-pixel-kit-flash-tool) but if you are building yourself you are either a brave person, don't have a supported OS or want to modify the source code. In any of those cases you will need to:
+
+Install [`esptool`](https://github.com/espressif/esptool):
+
+```bash
+pip install esptool
 ```
 
-This will generate the file `python/dist/pixel32-v0.0.1.bin` with the python files on `python/src` and a compiled, self contained version of the interface on `www/index.html`.
+Download a [MicroPython firmware for ESP32](https://micropython.org/download#esp32).
 
-### Building only the front end
+And finally run `esptool` to flash the MicroPython firmware on address `0x1000` and the Pixel32 FAT partition on the address `0x200000` (those addresses are very important).
 
-1. Run `yarn install` on `www` folder.
-1. Run `yarn run build` on `www` folder.
-
-### Flashing Pixel32 to Pixel Kit (MicroPython and files)
-
-1. Run `pip install -r requirements.txt` on `python` folder.
-1. Run `sh flash /path/to/your/pixel/kit` on `python` folder replacing. `/path/to/your/pixel/kit` by the serial port path of your Pixel Kit.
-
-### Extracting firmware from Pixel Kit
-
-1. Run `sh dump /path/to/your/pixel/kit` on `python` folder to dump its firmware to `dist/pixel32.bin` (this will take a while).
+```bash
+esptool -p /dev/your.pixel.kit write_flash 0x1000 micropython-firmware.bin 0x200000 pixel32partition.img
+```
