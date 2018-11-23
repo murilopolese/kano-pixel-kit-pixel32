@@ -1,9 +1,9 @@
 image: ubuntu1804
 
-version: 0.2.3.{build}
+version: 0.2.3
 
 environment:
-    - ARTIFACT: build/pixel32-$(APPVEYOR_BUILD_VERSION).img
+    ARTIFACT: build/pixel32-$(APPVEYOR_BUILD_VERSION).img
 
 services:
     - docker
@@ -16,10 +16,10 @@ build_script:
     - docker run -v ${APPVEYOR_BUILD_FOLDER}/build:/build murilopolese/pixel32-build:latest
 
 after_build:
-    - sh: mv build/pixel32.img $ARTIFACT
+    - sh: sudo mv build/pixel32.img $ARTIFACT
 
 artifacts:
-    - path: build/pixel32.img
+    - path: $(ARTIFACT)
 
 deploy:
     release: v$(APPVEYOR_BUILD_VERSION)
