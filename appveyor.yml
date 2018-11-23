@@ -3,7 +3,7 @@ image: ubuntu1804
 version: 0.2.3.{build}
 
 environment:
-    ARTIFACT: build/pixel32-$(APPVEYOR_BUILD_VERSION).img
+    ARTIFACT: build/pixel32-v$(APPVEYOR_BUILD_VERSION).img
 
 services:
     - docker
